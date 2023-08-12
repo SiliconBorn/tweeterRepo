@@ -22,6 +22,6 @@ const tweetRepo = new TweetRepo();
 
 // tweet.comments.push(comment);
 // await tweet.save();
-const tweet = await tweetRepo.getWithComments("64d76370765a1ccdc5a1d057")
-console.log(tweet)
+const tweet = await tweetRepo.getAll(0,3)
+console.log(tweet[0].contentWithEmail)
 })

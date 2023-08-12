@@ -24,7 +24,7 @@ class TweetRepo {
       const tweet = await Tweet.findById(id).populate({
         path:"comments",
 
-      });
+      }).lean();
       return tweet;
     } catch (error) {
       console.log(error);
@@ -48,6 +48,16 @@ class TweetRepo {
       console.log(error);
     }
   }
+
+  async getAll(offset,limit){
+    try {
+        const tweets = await Tweet.find().skip(offset).limit(limit)
+        return tweets;
+    } catch (error) {
+        console.log(error)
+    }
+  }
+
 }
 
 module.exports = TweetRepo;

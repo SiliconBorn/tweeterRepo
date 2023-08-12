@@ -15,6 +15,15 @@
                 ref:"Comment"
             }
         ]
+    },{
+        virtuals:{
+           contentWithEmail:{
+            get(){
+              return `${this.content} \nCreated by : ${this.userEmail}
+              `;
+            }
+           }
+        }
     },
     {
         timestamps:true
